@@ -26,6 +26,8 @@ its variants consumes around 60uA while in Deep Sleep Mode using the code below
 
 */
 
+#include <Arduino.h>
+
 #define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
 #define TIME_TO_SLEEP  10        /* Time ESP32 will go to sleep (in seconds) */
 
