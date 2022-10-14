@@ -29,7 +29,7 @@ its variants consumes around 60uA while in Deep Sleep Mode using the code below
 #include <Arduino.h>
 
 #define uS_TO_S_FACTOR 1000000  /* Conversion factor for micro seconds to seconds */
-#define TIME_TO_SLEEP  10        /* Time ESP32 will go to sleep (in seconds) */
+#define TIME_TO_SLEEP  2        /* Time ESP32 will go to sleep (in seconds) */
 
 RTC_DATA_ATTR int bootCount = 0;
 
@@ -59,6 +59,7 @@ void setup(){
 
   //Increment boot number and print it every reboot
   ++bootCount;
+  
   Serial.println("Boot number: " + String(bootCount));
 
   //Print the wakeup reason for ESP32
@@ -98,6 +99,11 @@ void setup(){
   Serial.println("This will never be printed");
 }
 
+uint16_t counter;
+
 void loop(){
+  delay(1000);
+  counter++;
+  Serial.println("tick loop");
   //This is not going to be called
 }
